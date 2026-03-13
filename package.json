@@ -1,0 +1,10 @@
+{
+  "name": "fortinet-ssl-vpn-clipboard-bookmarklets",
+  "private": true,
+  "dependencies": {
+    "ejs": "^3.1.10"
+  },
+  "scripts": {
+    "build": "node build.js"
+  }
+}

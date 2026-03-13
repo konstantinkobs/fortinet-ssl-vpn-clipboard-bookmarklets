@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fortinet Clipboard Bookmarklets</title>
+    <style>
+      :root {
+        --bg: #f5efe4;
+        --panel: rgba(255, 252, 245, 0.8);
+        --panel-strong: #fffaf0;
+        --text: #1f2937;
+        --muted: #5b6472;
+        --accent: #0f766e;
+        --accent-strong: #115e59;
+        --accent-soft: rgba(15, 118, 110, 0.12);
+        --border: rgba(31, 41, 55, 0.12);
+        --shadow: 0 18px 50px rgba(31, 41, 55, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(234, 179, 8, 0.22), transparent 34%),
+          radial-gradient(circle at top right, rgba(14, 165, 233, 0.2), transparent 28%),
+          linear-gradient(180deg, #fffaf1 0%, var(--bg) 100%);
+      }
+
+      main {
+        width: min(980px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 64px;
+      }
+
+      .hero {
+        padding: 32px;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent-strong);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 6vw, 4.3rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .lead {
+        max-width: 56ch;
+        margin: 18px 0 0;
+        font-size: 1.06rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .intro {
+        margin-top: 22px;
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(255, 250, 240, 0.9);
+        border: 1px solid var(--border);
+      }
+
+      .intro p {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .steps li {
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: var(--panel-strong);
+        border: 1px solid var(--border);
+      }
+
+      .steps strong,
+      .card h2 {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 22px;
+        border-radius: 24px;
+        border: 1px solid var(--border);
+        background: rgba(255, 250, 240, 0.92);
+        box-shadow: var(--shadow);
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .bookmarklet {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 52px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent) 0%, #0ea5e9 100%);
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        box-shadow: 0 12px 24px rgba(14, 116, 144, 0.22);
+      }
+
+      .bookmarklet:hover,
+      .bookmarklet:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 28px rgba(14, 116, 144, 0.28);
+      }
+
+      .hint {
+        margin-top: 14px;
+        padding: 14px 16px;
+        border-left: 4px solid var(--accent);
+        border-radius: 14px;
+        background: var(--accent-soft);
+        color: var(--text);
+      }
+
+      .subtle {
+        margin-top: 10px;
+        color: var(--muted);
+      }
+
+      code {
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.08);
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          width: min(100% - 20px, 980px);
+          padding-top: 20px;
+        }
+
+        .hero,
+        .card {
+          padding: 20px;
+          border-radius: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Fortinet SSL VPN Clipboard</p>
+        <h1>Skip the repetitive Fortinet clipboard clicks.</h1>
+        <p class="lead">
+          These bookmarklets automate the clipboard panel inside the Fortinet SSL-VPN
+          web UI. Save them once, then use a single click instead of stepping through
+          the same clipboard flow every time.
+        </p>
+        <div class="intro">
+          <p>
+            The manual process is usually: press <code>F8</code>, open
+            <code>Clipboard</code>, request or paste text, press the copy button, press
+            <code>Clear</code>, and close the slideover. These bookmarklets take care of
+            the repeated clipboard actions for you while that Fortinet page is open.
+          </p>
+        </div>
+        <ol class="steps">
+          <li><strong>1. Install them</strong>Drag each button below to your bookmarks bar once.</li>
+          <li><strong>2. Open Fortinet</strong>Keep your current Fortinet SSL-VPN page open in the browser.</li>
+          <li><strong>3. Click once</strong>Press <code>↑ Send clipboard</code> or <code>↓ Get VPN clipboard</code> whenever you need it.</li>
+        </ol>
+      </section>
+
+      <section class="grid" aria-label="Bookmarklets">
+        
+          <article class="card">
+            <h2>↓ Get VPN clipboard</h2>
+            <p>Fetch the shared Fortinet clipboard text and copy it into your local clipboard.</p>
+            <div>
+              <a class="bookmarklet" href="javascript:(function()%7Bconst%20reqButton%20%3D%20document.getElementById(%22frds_clipboard_req_remote%22)%3B%0Aconst%20toLocalButton%20%3D%20document.getElementById(%22frds_clipboard_to_local%22)%3B%0Aconst%20textBox%20%3D%20document.getElementById(%22frds_clipboard_text%22)%3B%0Aconst%20clearButton%20%3D%20document.getElementById(%22frds_clipboard_clear%22)%3B%0A%0Aif%20(reqButton)%20reqButton.click()%3B%0A%0Aif%20(textBox%20%26%26%20toLocalButton)%20%7B%0A%20%20const%20initialValue%20%3D%20textBox.value%3B%0A%20%20const%20interval%20%3D%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20if%20(textBox.value%20!%3D%3D%20initialValue)%20%7B%0A%20%20%20%20%20%20clearInterval(interval)%3B%0A%20%20%20%20%20%20toLocalButton.click()%3B%0A%20%20%20%20%20%20if%20(clearButton)%20clearButton.click()%3B%0A%20%20%20%20%7D%0A%20%20%7D%2C%2050)%3B%0A%7D%0A%0A%7D)()%3B">↓ Get VPN clipboard</a>
+            </div>
+            <p><code>copy_from.js</code></p>
+          </article>
+        
+          <article class="card">
+            <h2>↑ Send clipboard</h2>
+            <p>Read text from your local clipboard and push it to the shared Fortinet clipboard field.</p>
+            <div>
+              <a class="bookmarklet" href="javascript:(function()%7B(async%20()%20%3D%3E%20%7B%0A%20%20const%20text%20%3D%20await%20navigator.clipboard.readText()%3B%0A%20%20const%20input%20%3D%20document.getElementById(%22frds_clipboard_text%22)%3B%0A%20%20if%20(input)%20input.value%20%3D%20text%3B%0A%20%20const%20sendBtn%20%3D%20document.getElementById(%22frds_clipboard_to_server%22)%3B%0A%20%20if%20(sendBtn)%20sendBtn.click()%3B%0A%20%20setTimeout(()%20%3D%3E%20%7B%0A%20%20%20%20const%20clearBtn%20%3D%20document.getElementById(%22frds_clipboard_clear%22)%3B%0A%20%20%20%20if%20(clearBtn)%20clearBtn.click()%3B%0A%20%20%7D%2C%20300)%3B%0A%7D)()%3B%0A%0A%7D)()%3B">↑ Send clipboard</a>
+            </div>
+            <p><code>copy_to.js</code></p>
+          </article>
+        
+      </section>
+
+      <p class="hint">
+        If the browser asks for clipboard permission, allow it for the Fortinet page.
+        The <code>↑ Send clipboard</code> bookmarklet needs clipboard read access.
+      </p>
+      <p class="subtle">
+        <code>↑ Send clipboard</code> moves text from your computer into the remote
+        session. <code>↓ Get VPN clipboard</code> brings the remote clipboard back to
+        your local machine.
+      </p>
+    </main>
+  </body>
+</html>
