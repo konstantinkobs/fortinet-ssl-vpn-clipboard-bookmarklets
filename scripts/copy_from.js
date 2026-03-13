@@ -1,18 +1,27 @@
 // name: ↓ Get VPN clipboard | description: Fetch the shared Fortinet clipboard text and copy it into your local clipboard.
 const reqButton = document.getElementById("frds_clipboard_req_remote");
-const toLocalButton = document.getElementById("frds_clipboard_to_local");
 const textBox = document.getElementById("frds_clipboard_text");
 const clearButton = document.getElementById("frds_clipboard_clear");
 
 if (reqButton) reqButton.click();
 
-if (textBox && toLocalButton) {
+if (textBox) {
   const initialValue = textBox.value;
-  const interval = setInterval(() => {
-    if (textBox.value !== initialValue) {
+  let attempts = 0;
+  const maxAttempts = 10;
+
+  const interval = setInterval(async () => {
+    attempts += 1;
+
+    if (textBox.value !== initialValue && textBox.value !== "") {
       clearInterval(interval);
-      toLocalButton.click();
+      await navigator.clipboard.writeText(textBox.value);
       if (clearButton) clearButton.click();
+      return;
     }
-  }, 50);
+
+    if (attempts >= maxAttempts) {
+      clearInterval(interval);
+    }
+  }, 700);
 }
